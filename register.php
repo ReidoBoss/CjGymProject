@@ -1,4 +1,5 @@
 <?php
+include 'header.php';
 include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,7 +19,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 
     include 'send_email.php'; 
-    sendWelcomeEmail($email, $name, $expirationDate);
+    $daysUntilExpiration = date_diff(new DateTime($dateJoined), new DateTime($expirationDate))->format('%a');
+
+    sendWelcomeEmail($email, $name, $expirationDate,$daysUntilExpiration);
     
 
     

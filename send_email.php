@@ -1,4 +1,6 @@
 <?php
+include 'header.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -6,7 +8,7 @@ require 'C:/xampp/htdocs/emailTest/PHPMailer/src/Exception.php';
 require 'c:/xampp/htdocs/emailTest/PHPMailer/src/PHPMailer.php';
 require 'c:/xampp/htdocs/emailTest/PHPMailer/src/SMTP.php';
 
-function sendWelcomeEmail($recipient, $userName, $expirationDate) {
+function sendWelcomeEmail($recipient, $userName, $expirationDate,$daysUntilExpiration) {
     $mail = new PHPMailer(true);
 
     try {
@@ -14,7 +16,7 @@ function sendWelcomeEmail($recipient, $userName, $expirationDate) {
         $mail->Host       = 'smtp.gmail.com';  
         $mail->SMTPAuth   = true;
         $mail->Username   = 'bryansagarino222@gmail.com';  
-        $mail->Password   = '';  
+        $mail->Password   = 'bxbt uqfo qjdh cgre';  
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
@@ -95,13 +97,15 @@ function sendWelcomeEmail($recipient, $userName, $expirationDate) {
                         <ul>
                             <li><strong>Name:</strong> $userName</li>
                             <li><strong>Expiration Date:</strong> $expirationDate</li>
+                            <li><strong>Expiration Date:</strong> You will expire in $daysUntilExpiration day(s)</li>
+
                         </ul>
                         <p>If you have any questions or need assistance, feel free to contact us.</p>
                         <p>Best regards,<br>CJ Fitness Gym Team</p>
                     </div>
                     <div class='footer'>
                         Follow us on social media for updates: 
-                        <a href='#'>Facebook</a> | <a href='#'>Twitter</a> | <a href='#'>Instagram</a>
+                        <a href='https://www.facebook.com/profile.php?id=100091640307528&locale=hi_IN&paipv=0&eav=Afbu6bN5rZVk4fxxb-ya909aXGwon17ux9A1POY04XMprjVPZ34eIRs9gTG6jTeOPnE'>Facebook</a> | <a href='#'>Twitter</a> | <a href='#'>Instagram</a>
                     </div>
                 </div>
             </body>
